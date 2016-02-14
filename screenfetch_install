@@ -1,0 +1,26 @@
+#!/usr/bin/python3
+
+import urllib.request
+import os
+import getpass
+
+print("""
+
+                               __     _       _     
+                              / _|   | |     | |    
+ ___  ___ _ __ ___  ___ _ __ | |_ ___| |_ ___| |__  
+/ __|/ __| '__/ _ \/ _ \ '_ \|  _/ _ \ __/ __| '_ \ 
+\__ \ (__| | |  __/  __/ | | | ||  __/ || (__| | | |
+|___/\___|_|  \___|\___|_| |_|_| \___|\__\___|_| |_|
+                                                        
+by:https://www.facebook.com/archdesktop""")
+
+usuario = ("Bienvenido/a" + getpass.getuser())
+passw = getpass.getpass()
+download = urllib.request.urlretrieve("https://raw.github.com/KittyKatt/screenFetch/master/screenfetch-dev" , "screenfetch")
+instalar = os.system("echo " +  passw + " | sudo -S mv  screenfetch /usr/bin/")
+permisos = os.system("echo " + passw + " | sudo -S chmod +x /usr/bin/screenfetch")
+agregar = os.chdir("/home/" + getpass.getuser())
+bash = os.system("echo " + "screenfetch" + " >> .bashrc")
+
+print ("Thanks you!")
